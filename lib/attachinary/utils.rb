@@ -15,7 +15,7 @@ module Attachinary
                  Attachinary::File.new hash.slice(*Attachinary::File.attr_accessible[:default].to_a)
                else
                  hash.symbolize_keys!
-                 permitted_params = ActionController::Parameters.new(hash.slice(:public_id, :version, :width, :height, :format, :resource_type)).permit!
+                 permitted_params = ActionController::Parameters.new(hash.slice(:public_id, :version, :width, :height, :format, :resource_type, :duration)).permit!
                  Attachinary::File.new(permitted_params)
                end
         file.scope = scope.to_s if scope && file.respond_to?(:scope=)

@@ -8,6 +8,7 @@ class CreateAttachinaryTables < ActiveRecord::Migration
       t.string :version
       t.integer :width
       t.integer :height
+      t.integer :duration
       t.string :format
       t.string :resource_type
       t.timestamps

@@ -54,8 +54,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.6.0)
-      capybara (>= 2.3.0, < 2.5.0)
+    capybara-webkit (1.15.1)
+      capybara (>= 2.3, < 4.0)
       json
     cloudinary (1.1.0)
       aws_cf_signer
@@ -241,3 +241,6 @@ DEPENDENCIES
   simple_form
   sqlite3
   valid_attribute
+
+BUNDLED WITH
+   1.14.6

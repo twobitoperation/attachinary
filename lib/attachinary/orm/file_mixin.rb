@@ -3,7 +3,7 @@ module Attachinary
     def self.included(base)
       base.validates :public_id, :version, :resource_type, presence: true
       if Rails::VERSION::MAJOR == 3
-        base.attr_accessible :public_id, :version, :width, :height, :format, :resource_type
+        base.attr_accessible :public_id, :version, :width, :height, :format, :resource_type, :duration
       end
       base.after_destroy :destroy_file
       base.after_create  :remove_temporary_tag
@@ -34,7 +34,7 @@ module Attachinary
     
   private
     def destroy_file
-      Cloudinary::Uploader.destroy(public_id) if public_id && !keep_remote?
+      Cloudinary::Uploader.destroy(public_id, {resource_type: resource_type}) if public_id && !keep_remote?
     end
 
     def remove_temporary_tag
